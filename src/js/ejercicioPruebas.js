@@ -34,7 +34,7 @@ function afegirText() {
   <div>Añade el texto introducido en el input una vez pulsado el botón:</div>
   <form>
     <input type="text" id="texto" />
-    <button type="button" id="button_1">Añadir texto</button>
+    <button type="button" id="button_1" class="btn btn-outline-dark">Añadir texto</button>
   </form>
 
   <div id="mostrar_texto"></div><hr>`;
@@ -66,7 +66,7 @@ function mayorNum() {
       <input type="text" id="num1" style="margin-bottom: 20px";/>
       <br>
       <input type="text" id="num2" style="margin-bottom: 20px"/>
-      <button type="button" id="mayor">¿Quien es el mayor?</button>
+      <button type="button" id="mayor" class="btn btn-outline-dark">¿Quien es el mayor?</button>
     </form>`;
 
   const div = document.createElement("div");
@@ -103,7 +103,7 @@ function generaLista() {
             <hr>
             <p>Crear un botón que al pulsarlo genere una lista de 10 números aleatorios en un select vacio. 
               Al pulsar de nuevo, se reseteara la lista.</p>
-            <button type="button" id="generarLista">Generar lista</button>
+            <button type="button" id="generarLista" class="btn btn-outline-dark">Generar lista</button>
               <select id="elementos"></select>
             <hr>`;
   const div = document.createElement("div");
@@ -138,7 +138,7 @@ function listaDesordenada() {
     y lo mostramos en una lista desordenada.</p>
   <form>
     <input id="nombrePersona" type="text" placeholder="Insertar nombre..." />
-    <button type="button" id="insertarNombre">Insertar</button>
+    <button type="button" id="insertarNombre" class="btn btn-outline-dark">Insertar</button>
   </form>
   <hr>`;
 
@@ -199,7 +199,9 @@ function claveContrasenya() {
 // <input type=button onClick="location.href='index_2.html'"
 
 function ocultar() {
-  const html = `<p>Incluimos un nuevo botón, en el que oculta el div anterior al pulsar el input de tipo botón: </p>
+  const html = `
+  <a name="ocultar"></a>
+  <p>Incluimos un nuevo botón, en el que oculta el div anterior al pulsar el input de tipo botón: </p>
   <p>Si volvemos a clickar de nuevo, volverremos a mostrar el div anterior. </p>
   <input id="botonOcultar" type=button value='clickaquí para ocultar el div'>
   <hr>`;
@@ -223,6 +225,42 @@ function ocultar() {
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++
 
+function pedirNota() {
+  const html = `
+  <p>PIDE UNA NOTA POR TECLADO Y LA GUARDA EN LA VARIABLE nota: </p>
+  <input id="introduceNota" placeholder="Ingresar una nota...">
+  <button type="button" class="btn btn-primary btn-sm" id="resultadoNota">resultado de la nota</button>
+  `;
+
+  const div = document.createElement("div");
+  div.innerHTML = html;
+  body.append(div);
+
+  const botonResultadoNota = document.getElementById("resultadoNota");
+
+  botonResultadoNota.addEventListener("click", function () {
+    const resultado = document.getElementById("introduceNota").value;
+    if (resultado > 0 && resultado <= 10) {
+      if (resultado < 3) {
+        alert("Muy deficiente");
+      } else if (resultado < 5) {
+        alert("Insuficiete");
+      } else if (resultado < 6) {
+        alert("Suficiente");
+      } else if (resultado < 7) {
+        alert("Bien");
+      } else if (resultado < 9) {
+        alert("Notable");
+        5;
+      } else if (resultado >= 9) {
+        alert("Sobresaliente");
+      }
+    }
+  });
+}
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++
+
 export const init = () => {
   elegido();
   afegirText();
@@ -231,4 +269,5 @@ export const init = () => {
   listaDesordenada();
   claveContrasenya();
   ocultar();
+  pedirNota();
 };

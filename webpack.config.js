@@ -46,6 +46,7 @@ module.exports = {
       template: "./src/index.html",
       filename: "./index.html",
     }),
+    // En el caso de tener dos index... pero sino lo elimino
     new HtmlWebPackPlugin({
       template: "./src/index_2.html",
       filename: "./index_2.html",
